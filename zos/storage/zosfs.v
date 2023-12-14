@@ -1,10 +1,10 @@
-module zos
+module storage
 
 import threefoldtech.zos.core
 
 pub struct ZOSFS {
 pub mut:
-	workload core.WorkloadRef
+	workload core.Workload
 	flist    Flist
 }
 
@@ -35,7 +35,7 @@ pub mut:
 	zosfs ZOSFS
 	mount string    // location where it is mounted in VM
 	reset bool      // if true will reset any existing system underneith mount
-	type_ MountType // can be read/rw/copyonwrite
+	type_ MountType // can be read/copyonwrite
 }
 
 // mount an existing or to be created new ZOSFSMount onto a VM .
@@ -53,6 +53,6 @@ pub fn zosfs_mount_get(wlref string) ZOSFSMount {
 	return ZOSFSMount{}
 }
 
-pub fn zosfs_mounts_list() []ZOSFSMount {
+pub fn zosfs_mounts_list(args core.VDCSelectionArgs) []ZOSFSMount {
 	return []ZOSFSMount{}
 }

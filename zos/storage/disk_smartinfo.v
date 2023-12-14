@@ -1,4 +1,4 @@
-module compute
+module storage
 
 import time
 

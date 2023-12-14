@@ -1,4 +1,4 @@
-module zdb
+module storage
 
 import threefoldtech.zos.core
 
@@ -7,9 +7,9 @@ struct ZDB {
 	namespace   string
 	password    string
 	mode        ZDBMode // zdb mode
+	size_gb     int     // zdb size in GB
 	public      bool    // if zdb gets a public ip6
 	mycelium    bool    // if connected to mycelium
-	size_gb     int     // zdb size in GB
 	public_ip   string  // if we own already the ip addr, then we can specify it, if the node has access to it
 	mycelium_ip string  // if we own already the ip addr, then we can specify it, if the node has access to it
 }
@@ -39,6 +39,6 @@ pub fn zdb_get(wlref string) ZDB {
 }
 
 // list all the known zdbs which you have rights on
-pub fn zdbs_list() []ZDB {
+pub fn zdbs_list(args core.VDCSelectionArgs) []ZDB {
 	return []ZDB{}
 }

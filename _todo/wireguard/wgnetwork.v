@@ -2,27 +2,7 @@ module zos
 
 // import 
 
-//````
-// - 192.168.6.6 
-//   - an ip address, without specified class and port
-// - 192.168.6.6/24
-//   - an ip address and we specify the class
-// - 192.168.6.0/24
-//   - this is a range, not one ip address
-//   - has 255 addr inside
-// - localhost:7777
-//   - specific port on localhost
-// - 192.168.6.6:7777
-// - 192.168.6.6:7777/24 
-//   - this means we know its a class C and its a specific IP address with defined port
-// - ipv6: [x:x:x:x:x:x:x:x]:port 
-// - ipv6: x:x:x:x:x:x:x:x
-// - ipv6: x::x/96
-//````
-pub struct IPAddr{
-pub mut:
-	ipaddr	string
-}
+
 
 [params]
 pub struct WGNetwork {

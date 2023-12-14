@@ -4,10 +4,9 @@ import threefoldtech.zos.core
 
 pub struct WebGWRule {
 pub mut:
-	workload        core.WorkloadRef
+	workload        core.Workload
 	fqdn            []string        // fqdn TODO: format?
-	tls_passthrough string          // tls passthrough is optional
-	network         string          // gateway network
+	tls_passthrough bool            // tls passthrough is optional
 	backends        []IPDestination // where does the traffic get terminated
 	// if we want custom ipaddr to the service
 	public      bool   // if webgw gets a public ip6
@@ -35,6 +34,6 @@ pub fn webgw_get(wlref string) WebGWRule {
 }
 
 // list all the known webgws which you have rights on
-pub fn webgws_list() []WebGWRule {
+pub fn webgws_list(args core.VDCSelectionArgs) []WebGWRule {
 	return []WebGWRule{}
 }

@@ -1,19 +1,25 @@
-module compute
+module storage
 
 import threefoldtech.zos.core
 
 pub struct VDisk {
 pub mut:
-	workload     core.WorkloadRef
+	workload     core.Workload
 	ssd_disks    []DiskBackend // only SSD disks
 	hdd_backends []DiskBackend // in caching scenario
 	thin         bool // if set means it is an image as put on SSD disk (thin stands for thin provisioning)
+	fs_type      FSType
+}
+
+pub enum FSType {
+	raw
+	btrfs
 }
 
 // SSD is min 50 GB of space .
 // HDD is min 1 TB of space and min 10% of a HDD .
 // HDD can only be used as backend for VDisk on SSD, min 2% needs to be on SSD in relation to backend
-pub struct DiskBackend {
+pub struct DiskBackend { // id a partition on a HDD/SSD
 pub mut:
 	disk_id   string // corresponds to id's as we get from DiskStat
 	size_gb   u16
@@ -43,7 +49,7 @@ pub fn vdisk_get(wlref string) VDisk {
 }
 
 // list all the known vdisks which you have rights on
-pub fn vdisks_list() []VDisk {
+pub fn vdisks_list(args core.VDCSelectionArgs) []VDisk {
 	return []VDisk{}
 }
 
@@ -77,7 +83,7 @@ pub fn disk_mount_get(wlref string) DiskMount {
 }
 
 // list all the known mounts which you have rights on
-pub fn disk_mounts_list() []DiskMount {
+pub fn disk_mounts_list(vdc_id string) []DiskMount {
 	return []DiskMount{}
 }
 

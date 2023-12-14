@@ -1,5 +1,7 @@
 module core
 
+import freeflowuniverse.crystallib.data.ourtime
+
 pub struct Zlogs {
 pub mut:
 	wlref string // identifies for which workload it is
@@ -15,10 +17,10 @@ pub mut:
 @[params]
 pub struct LogGetArgs {
 pub mut:
-	from_time string
-	to_time   string
-	wlref     string   // is reference to a workload to get logs from
-	targets   []string // ipaddresses which will receive the logs
+	from_time ourtime.OurTime
+	to_time   ourtime.OurTime
+	wlref     string    // is reference to a workload to get logs from
+	targets   []IPAddr6 // ipaddresses which will receive the log (from query or as tail)
 }
 
 // if targets set, then will return empty ZLogs and push the logs to the targets over mycelium

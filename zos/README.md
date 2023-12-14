@@ -15,7 +15,7 @@
 - Request = a json rpc request as send over mycelium
 - SourceIP = source ip where Request comes from
 - Agent = knows how to deal with Requests 
-- ZOSAgent = Agent running on Zero-OS
+- ZOSAgent = Agent running on Zero-OS or supported operating system which can run the workloads
 - ZOSBM = ZOS as Installed on Bare Metal (how we do today)
 - User = SourceAgent (agent who sends Request to other Agent) or a user through their 3Bot
 - Workload = a service as managed by ZOSAgent
@@ -45,12 +45,21 @@ ZOSAgent will have different functionaly depending the requirements but at start
 
 ## rights management
 
-Each User is linked to a SourceIP, if workloads are created as result of the Request, the Agent will remember who requested the Workload and will make sure this User is admin over this workload.
+Each Workload is linked to a SourceIP, if workloads are created as result of the Request, the Agent will remember who requested the Workload and will make sure this User is admin over this workload.
 
 The User can now add secrets to it to give specific rights (see workload_rights_set() and workload_admin_add()), this can allow other Users to get acces or through nothing more than a secret or linked to SourceIP.
 
 ## id's
 
-- wlref: is for ```$cid:$vdcname:$workloadname```  
+- wlref: is  ```$cid:$vdcname:$workloadname```  
   - is unique in the world because cid is unique
   - name's are always name_fixed (lower case, only _, no special chars)
+- vdcref is ```$cid:$vdcname```   
+  - is unique in the world because cid is unique
+  - name's are always name_fixed (lower case, only _, no special chars)
+
+
+### todo
+
+- security per or isolation VDC, rights per VDC, then move workloads between VDC's
+- tls termination
