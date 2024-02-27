@@ -1,4 +1,4 @@
+## Specifications for ZOS 4.0
 
-
-- [https://info.ourworld.tf/zosspecs/](https://info.ourworld.tf/zosspecs/)
-- [https://info.ourworld.tf/zosspecs/](https://info.ourworld.tf/zosspecs_v/)
+- [MDBook Specs](https://info.ourworld.tf/zosspecs/)
+- [V specs](https://info.ourworld.tf/zosspecs_v/)
