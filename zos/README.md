@@ -25,7 +25,7 @@
 
 ## ZOSAgent can run on more than ZOS
 
-ZOSAgent can run on Ubuntu +22.04 (maybe later gentoo) as well as ZOSBM.
+ZOSAgent can run on Ubuntu +22.04 and Arch Linux as well as ZOSBM, we will also support OpenWrt for our network functions.
 
 ZOSAgent will have different functionaly depending the requirements but at start we have
 
@@ -38,7 +38,9 @@ ZOSAgent will have different functionaly depending the requirements but at start
   - ZOSFS = our ownerlay filesystem
 - network
   - mycelium
+  - yggdrasil
   - wireguard
+  - pub ip address ipv6/ipv4
 - webgw
   - dns
   - https proxy to mycelium (forward of encrypted SSL, terminated or not)
@@ -62,4 +64,3 @@ The User can now add secrets to it to give specific rights (see workload_rights_
 ### todo
 
 - security per or isolation VDC, rights per VDC, then move workloads between VDC's
-- tls termination

@@ -26,6 +26,7 @@ pub fn (vdc VDC) vdcref() string {
 }
 
 // set the vdc, will overwrite existing one
+// only admin's can overwrite
 pub fn vdc_set(vdc VDC) bool {
 	return true
 }
