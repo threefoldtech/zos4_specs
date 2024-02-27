@@ -18,7 +18,7 @@ pub mut:
 	metadata     paramsparser.Params // generic way how to pass params to zos and back, best not to overuse
 	acls         []ACL     // optional: need to use ipaddr or acl(s)
 	admins       []IPAddr6 // ipaddr access is always full admin access
-	circle_chain []IPAddr6 // members of the chain for the circle, used for billing, any of them can pay, is []SourceIP
+	billing 	 []IPAddr6  // members of circle responsible for this VDC, these are the guys who can pay
 }
 
 pub fn (vdc VDC) vdcref() string {
