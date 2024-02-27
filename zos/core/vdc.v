@@ -13,12 +13,12 @@ pub fn vdc_new(cid string, name string) VDC {
 // metadata: is Params struct which can be represented as string: color:red urgent location:'gent'
 pub struct VDC {
 pub mut:
-	cid          string // circle id who owns the vdc (eg.  a5g)
-	name         string // unique name for the VDC (name_fix)
-	metadata     paramsparser.Params // generic way how to pass params to zos and back, best not to overuse
-	acls         []ACL     // optional: need to use ipaddr or acl(s)
-	admins       []IPAddr6 // ipaddr access is always full admin access
-	billing 	 []IPAddr6  // members of circle responsible for this VDC, these are the guys who can pay
+	cid      string // circle id who owns the vdc (eg.  a5g)
+	name     string // unique name for the VDC (name_fix)
+	metadata paramsparser.Params // generic way how to pass params to zos and back, best not to overuse
+	acls     []ACL     // optional: need to use ipaddr or acl(s)
+	admins   []IPAddr6 // ipaddr access is always full admin access
+	billing  []IPAddr6 // members of circle responsible for this VDC, these are the guys who can pay
 }
 
 pub fn (vdc VDC) vdcref() string {

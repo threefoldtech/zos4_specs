@@ -2,12 +2,12 @@
 
 ```js
 
-!!book.generate name:'tfgrid' title:'TFGrid Internet 4.0'
-        url:'https://git.ourworld.tf/tfgrid/info_tfgrid/src/branch/main/books/tfgrid'
+!!book.generate name:'zosspecs' title:'ZOS Specs 4.0'
+        url:'https://github.com/threefoldtech/zos4_specs/tree/development/mdbook'
 
 
 !!doctree.add
-    url:'https://git.ourworld.tf/tfgrid/info_tfgrid/src/branch/main/collections'
+    url:'https://github.com/threefoldtech/zos4_specs/tree/development/mdbook/zos/'
 
 
 
